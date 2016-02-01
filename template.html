@@ -1,0 +1,38 @@
+<html>
+<header>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="./js/tables.js"></script>
+  <style="th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+    content: " \25B5\25BE"
+}"></style>
+
+<title>AWS Audit Tool</title>
+<h1>{{title}}</h1>
+
+<table class="sortable">
+  <thead>
+    <tr>
+      {% for header in headers %}
+        <th>{{header}}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for row in rows %}
+      <tr>{{row}}</tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+  {% for link in nav_links %}
+    <th><a href=./{{link}}.html>{{link}}</a></th>
+  {% endfor %}
+</tr>
+</thead>
+</table>
+
+</html>
