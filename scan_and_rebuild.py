@@ -3,44 +3,46 @@ from jinja2 import Template
 from os.path import isfile
 
 
-from risk_rules import risks
 from models import *
 
 from boto.ec2.connection import EC2Connection
 import boto
-# db.create_tables([Instance, SecGrp, FWRule])
-# regions = ["us-west-1", "us-west-2", "us-east-1", "eu-west-1", "eu-central-1", "ap-northeast-1", "ap-southeast-1", "ap-southeast-2", "sa-east-1"] #"ap-northeast-2",
-# for region in regions:
-#     conn = boto.ec2.connect_to_region(region)
-#     groups = conn.get_all_security_groups()
-#     for group in groups:
-#         _sg = SecGrp.create(name=str(group.name),
-#                             description=str(group.description),
-#                             region=str(group.region).replace("RegionInfo:",""),
-#                             created=datetime.now().date())
-#         for instance in group.instances():
-#             _i = Instance.create(name=str(instance.tags.get("Name", "Unknown")),
-#                                  state=str(instance.state),
-#                                  description=str(instance.tags.get("Description", "No Description provided")),
-#                                  region=str(instance.region).replace("RegionInfo:",""),
-#                                  ip=str(instance.ip_address),
-#                                  sec_grp=_sg,
-#                                  created=datetime.now().date())
-#         for rule in group.rules:
-#             for grant in rule.grants:
-#                 if "/" not in str(grant):
-#                     continue
-#                 _port = str(rule).split(":")[-1]
-#                 _port = _port if "-1" not in _port else "all"
-#                 _fwr = FWRule.create(port=_port,
-#                                      cidr=str(grant),
-#                                      description="Missing",
-#                                      flag="",
-#                                      sec_grp=_sg,
-#                                      created=datetime.now().date())
+db.create_tables([Instance, SecGrp, FWRule])
+regions = ["us-west-1", "us-west-2", "us-east-1", "eu-west-1", "eu-central-1", "ap-northeast-1", "ap-southeast-1", "ap-southeast-2", "sa-east-1"] #"ap-northeast-2",
+for region in regions:
+    conn = boto.ec2.connect_to_region(region)
+    groups = conn.get_all_security_groups()
+    for group in groups:
+        print group
+        _sg = SecGrp.create(name=str(group.name),
+                            description=str(group.description),
+                            region=str(group.region).replace("RegionInfo:",""),
+                            created=datetime.now().date())
+        for instance in group.instances():
+            print str(instance.tags.get("Name", "Unknown"))
+            _i = Instance.create(name=str(instance.tags.get("Name", "Unknown")),
+                                 state=str(instance.state),
+                                 description=str(instance.tags.get("Description", "No Description provided")),
+                                 region=str(instance.region).replace("RegionInfo:",""),
+                                 ip=str(instance.ip_address),
+                                 sec_grp=_sg,
+                                 created=datetime.now().date())
+        for rule in group.rules:
+            for grant in rule.grants:
+                if "/" not in str(grant):
+                    continue
+                _port = str(rule).split(":")[-1]
+                _port = _port if "-1" not in _port else "all"
+                _fwr = FWRule.create(port=_port,
+                                     cidr=str(grant),
+                                     description="Missing",
+                                     flag="",
+                                     sec_grp=_sg,
+                                     created=datetime.now().date())
 
 
-
+# Run queries to find risks
+from risk_rules import risks
 
 
 # Template file for results tables
@@ -111,6 +113,7 @@ for risk in fixed_risk_set:
 # sent, and also bunches up any fixes into the next message (since the data file
 # is not written)
 if len(new_risk_to_email) == 0:
+    print "Nothing to send"
     exit()
 
 notification_string = """Update from AWS security group audit tool.
@@ -125,33 +128,28 @@ Also noticed that the following risks have been fixed:
 {}
 
 -------------------------------------------------------
+For more info, please visit http://ec2-security-audit.anaplan-np.net/
 """.format("\n".join(new_risk_to_email), "\n".join(fixed_risk_to_email))
 print notification_string
 
+from datetime import datetime
 import boto.ses
 conn = boto.ses.connect_to_region('us-east-1')
+
+# Get email recipients from file. Should be list separated by newlines
+with open("email_recipients.txt", "r") as email_file:
+    recipients = map(lambda x: x.strip(), email_file.readlines())
+
 # print conn.list_verified_email_addresses()
-# print conn.send_email(
-#         'david.walker@anaplan.com',
-#         'Test AWS audit email',
-#         notification_string,
-#         ['david.walker@anaplan.com'])
+print conn.send_email(
+        'david.walker@anaplan.com',
+        'AWS secgrp audit email for {}'.format(str(datetime.now())),
+        notification_string,
+        recipients)
 
 
 print conn.get_send_quota()
 
-# Write recently found risks to file so we
+# Write recently found risks to file so we can use them to diff next time
 with open("./data/previous_risks.json", "w") as prev_risk_file:
     dump(curr_risks, prev_risk_file)
-
-
-
-
-
-# todo:
-# write automation script with cron - done
-# get it working with both prod and nonprod - done, only one at a time
-# use a new account for boto
-# test on vagrant box with apache and cron - done
-# find new/fixed risks
-# notify by email

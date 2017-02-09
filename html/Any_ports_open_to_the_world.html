@@ -1,0 +1,176 @@
+<html>
+<header>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="./js/tables.js"></script>
+  <style="th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+    content: " \25B5\25BE"
+}"></style>
+
+<title>AWS Audit Tool</title>
+<h1>Any ports open to the world</h1>
+
+<table class="sortable">
+  <thead>
+    <tr>
+      
+        <th>instances</th>
+      
+        <th>region</th>
+      
+        <th>sec_grp name</th>
+      
+        <th>num instances in sg</th>
+      
+        <th>port open</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr><td></td><td>us-west-1</td><td>default</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>prd-chef-server-v2-DO_NOT_DELETE</td><td>us-west-1</td><td>util</td><td>1</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-west-1</td><td>chef-ng</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-west-1</td><td>sdp</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-west-1</td><td>supermarket-ng</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-west-1</td><td>wordpressDEVLB</td><td>0</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td></td><td>us-west-1</td><td>wordpressDEVLB</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>chef.anaplan.com - PROD CHEF SERVER (Restored on 052016)</td><td>us-west-2</td><td>chef</td><td>1</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2us-core2-p2 (old - retired)</td><td>us-west-2</td><td>core-servers</td><td>1</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2us-core2-p2 (new), Imageme</td><td>us-west-2</td><td>core-servers</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-west-2</td><td>hublb</td><td>0</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td></td><td>us-west-2</td><td>hublb</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2us-help1-1-prod.anaplan-prod.net, ec2us-help1-2-prod.anaplan-prod.net</td><td>us-west-2</td><td>prod-help-site</td><td>2</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td>ec2us-help1-1-prod.anaplan-prod.net, ec2us-help1-2-prod.anaplan-prod.net</td><td>us-west-2</td><td>prod-help-site</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2us-sso1, ec2us-sso2</td><td>us-west-2</td><td>SSO</td><td>2</td><td>tcp(8080-8080)</td></tr>
+    
+      <tr><td>ec2us-sso1, ec2us-sso2</td><td>us-west-2</td><td>SSO</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2us-yum1-1-prod, ec2us-dr1-1-prod.anaplan-prod.net, ec2us-ns1-1-prod, ec2us-mysql1-1-prod.anaplan-prod.net, ec2us-ns1-2-prod, ec2us-dc5livesyncbackup1-1-prod.anaplan-prod.net</td><td>us-west-2</td><td>util</td><td>6</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2us-ns1, ec2us-ns2</td><td>us-west-2</td><td>util</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-west-2</td><td>wwwlb</td><td>0</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td></td><td>us-west-2</td><td>wwwlb</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-west-2</td><td>wwwuatlb</td><td>0</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td></td><td>us-west-2</td><td>wwwuatlb</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-smokeping-virginia</td><td>us-east-1</td><td>smokeping</td><td>1</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td>ec2-smokeping-virginia</td><td>us-east-1</td><td>smokeping</td><td>1</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-administrator1-1-paris1.anaplan.com, ec2-administrator1-1-paris2.anaplan.com, ec2-administration1-1-hub.anaplan.com, ec2-administration1-1-paris5.anaplan.com, ec2-administrator1-1-paris3.anaplan.com, ec2-administrator1-1-sfqa2.anaplan.com, ec2-administration1-1-hub2.anaplan.com, ec2-administration1-1-sfeng2.anaplan.com, ec2-admin1-1-auto2.anaplan.com, ec2-administrator1-1-sfqa1.anaplan.com</td><td>us-east-1</td><td>administrator</td><td>10</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td>ec2-administrator1-1-paris1.anaplan.com, ec2-administrator1-1-paris2.anaplan.com, ec2-administration1-1-hub.anaplan.com, ec2-administration1-1-paris5.anaplan.com, ec2-administrator1-1-paris3.anaplan.com, ec2-administrator1-1-sfqa2.anaplan.com, ec2-administration1-1-hub2.anaplan.com, ec2-administration1-1-sfeng2.anaplan.com, ec2-admin1-1-auto2.anaplan.com, ec2-administrator1-1-sfqa1.anaplan.com</td><td>us-east-1</td><td>administrator</td><td>10</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-api1-2-qa1.anaplan-np.net</td><td>us-east-1</td><td>api</td><td>1</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-api1-1-paris5.anaplan.com, ec2-api1-1-paris1.anaplan.com, ec2-api1-1-sfeng2.anaplan.com, ec2-api1-1-hub.anaplan.com, ec2-api1-1-hub2.anaplan.com, ec2-api1-1-sfqa1.anaplan.com, ec2-api1-1-paris2.anaplan.com, ec2-api1-1-sfqa2.anaplan.com, ec2-api1-1-paris3.anaplan.com, ec2-api1-1-auto2.anaplan.com</td><td>us-east-1</td><td>api-paris</td><td>10</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-apphub1-2-np, ec2-apphub1-1-np</td><td>us-east-1</td><td>apphub-np</td><td>2</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td>ec2-apphub1-2-np, ec2-apphub1-1-np</td><td>us-east-1</td><td>apphub-np</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2us-auth1-1-auto1.anaplan-np.net, ec2-auth1-1-qa1.anaplan-np.net</td><td>us-east-1</td><td>auth</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-auth1-1-paris1.anaplan.com, ec2-auth1-1-sfqa1.anaplan.com, ec2-auth1-1-hub.anaplan.com, ec2-auth1-1-paris3.anaplan.com, ec2-auth1-1-auto2.anaplan.com, ec2-auth1-1-sfeng2.anaplan.com, ec2-auth1-1-paris2.anaplan.com, ec2-auth1-1-paris5.anaplan.com, ec2-auth1-1-sfqa2.anaplan.com, ec2-auth1-1-hub2.anaplan.com</td><td>us-east-1</td><td>auth-paris</td><td>10</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-east-1</td><td>canvas-np</td><td>0</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td></td><td>us-east-1</td><td>cern.dev.anaplan.com Frontend SG</td><td>0</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td></td><td>us-east-1</td><td>cern.dev.anaplan.com Frontend SG</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-collaboration2-1-paris2.anaplan.com, ec2-collaboration1-1-paris2.anaplan.com</td><td>us-east-1</td><td>Collaboration</td><td>2</td><td>tcp(3000-3000)</td></tr>
+    
+      <tr><td>ec2-collaboration2-1-paris2.anaplan.com, ec2-collaboration1-1-paris2.anaplan.com</td><td>us-east-1</td><td>Collaboration</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-app4-1-qa1.anaplan.com, ec2-app8-qa1.anaplan.com, ec2-app1-qa1.anaplan.com, ec2-app9-qa1.anaplan.com, ec2-app2-qa1.anaplan.com, ec2us-app1-1-auto1.anaplan-np.net, ec2-app7-qa1.anaplan.com, ec2-app6-qa1.anaplan.com, ec2-app5-qa1.anaplan.com, ec2-app3-qa1.anaplan.com</td><td>us-east-1</td><td>core</td><td>10</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-app2-1-sfqa2.anaplan.com, ec2-app1-1-hub.anaplan.com, ec2-app1-1-sfqa1.anaplan.com, ec2-app3-1-sfqa2.anaplan.com, ec2-app1-1-sfqa2.anaplan.com, ec2-app1-1-paris5.anaplan.com, ec2-app1-1-sfeng2.anaplan.com, ec2-app1-1-paris1.anaplan.com, ec2-app1-1-paris2.anaplan.com, ec2-app1-1-hub2.anaplan.com, ec2-app1-1-auto2.anaplan.com, ec2-app1-1-paris3.anaplan.com, ec2-app4-1-sfqa2.anaplan.com</td><td>us-east-1</td><td>core-paris</td><td>13</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-docusign1-1-paris2.anaplan.com, ec2-docusign1-1-paris1.anaplan.com, ec2-docusign1-1-paris5.anaplan.com</td><td>us-east-1</td><td>Docusign-paris1</td><td>3</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-haproxy2-qa1.anaplan.com, ec2-haproxy1-qa1.anaplan.com, haproxy-1-qa1</td><td>us-east-1</td><td>haproxy</td><td>3</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td></td><td>us-east-1</td><td>hub-demo-www</td><td>0</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-canvas1-2-np, ec2-canvas1-1-np</td><td>us-east-1</td><td>launch-wizard-2</td><td>2</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td>ec2-canvas1-2-np, ec2-canvas1-1-np</td><td>us-east-1</td><td>launch-wizard-2</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>TESTBACKUPS</td><td>us-east-1</td><td>launch-wizard-7</td><td>1</td><td>tcp(22-22)</td></tr>
+    
+      <tr><td>TESTBACKUPS</td><td>us-east-1</td><td>launch-wizard-7</td><td>1</td><td>tcp(21-21)</td></tr>
+    
+      <tr><td>TESTBACKUPS</td><td>us-east-1</td><td>launch-wizard-7</td><td>1</td><td>tcp(20-20)</td></tr>
+    
+      <tr><td>ec2us-administrator1-1-auto1.anaplan-np.net, ec2-administrator1-1-qa1.anaplan-np.net</td><td>us-east-1</td><td>manager</td><td>2</td><td>tcp(80-80)</td></tr>
+    
+      <tr><td>ec2us-administrator1-1-auto1.anaplan-np.net, ec2-administrator1-1-qa1.anaplan-np.net</td><td>us-east-1</td><td>manager</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>docker-registry.anaplan-np.net, OLD nexus.anaplan-np.net, nexus.anaplan-np.net</td><td>us-east-1</td><td>Nexus</td><td>3</td><td>all</td></tr>
+    
+      <tr><td>ec2us-sdp1-1-auto1.anaplan-np.net, ec2us-api1-1-auto1.anaplan-np.net, ec2-rt1-1-qa1.anaplan-np.net, ec2-sdp1-2-qa1.anaplan-np.net, ec2us-rt1-1-auto1.anaplan-np.net, ec2-sdp1-qa1.anaplan.com, ec2-rt1-1-sfqa2.anaplan.com, ec2-api1-qa1.anaplan.com, ec2-rt1-1-sfqa1.anaplan.com</td><td>us-east-1</td><td>sdp</td><td>9</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-sdp1-1-sfqa1.anaplan.com, ec2-rt1-1-paris2.anaplan.com, ec2-sdp1-1-sfeng2.anaplan.com, ec2-sdp1-1-paris2.anaplan.com, ec2-rt1-1-sfeng2.anaplan.com, ec2-sdp1-1-paris1.anaplan.com, ec2-rt1-1-paris5.anaplan.com, ec2-rt1-1-hub.anaplan.com, ec2-sdp1-1-auto2.anaplan.com, ec2-sdp1-1-paris3.anaplan.com, ec2-rt1-1-hub2.anaplan.com, ec2-sdp1-1-sfqa2.anaplan.com, ec2-sdp1-1-paris5.anaplan.com, ec2-sdp1-1-hub2.anaplan.com</td><td>us-east-1</td><td>sdp-paris</td><td>14</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-bizmap1-1-hub2.anaplan.com, ec2-bizmap1-1-sfeng2.anaplan.com</td><td>us-east-1</td><td>solman</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2-sdp1-1-hub.anaplan.com</td><td>us-east-1</td><td>www-hub-demo</td><td>1</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>Windows ADFS-1</td><td>eu-west-1</td><td>launch-wizard-1</td><td>1</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2eu-core1-1-p2.anapan-np.net</td><td>eu-west-1</td><td>core-servers</td><td>1</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2jp-core1-uat, ec2jp-core1-p2</td><td>ap-northeast-1</td><td>core</td><td>2</td><td>tcp(443-443)</td></tr>
+    
+      <tr><td>ec2sg-core1-uat, Unknown, ec2sg-core1-p2, ec2sg-core1-uat</td><td>ap-southeast-1</td><td>core-server</td><td>4</td><td>tcp(443-443)</td></tr>
+    
+  </tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+  
+    <th><a href=./Instances_without_descriptions.html>Instances_without_descriptions</a></th>
+  
+    <th><a href=./Any_ports_open_to_the_world.html>Any_ports_open_to_the_world</a></th>
+  
+    <th><a href=./All_ports_open_to_the_world.html>All_ports_open_to_the_world</a></th>
+  
+    <th><a href=./HTTP_port_open_to_the_world.html>HTTP_port_open_to_the_world</a></th>
+  
+    <th><a href=./Instances_without_names.html>Instances_without_names</a></th>
+  
+    <th><a href=./SecGrps_with_no_running_instances.html>SecGrps_with_no_running_instances</a></th>
+  
+    <th><a href=./SecGrps_still_using_default_name.html>SecGrps_still_using_default_name</a></th>
+  
+    <th><a href=./SSH_ports_open_to_the_world.html>SSH_ports_open_to_the_world</a></th>
+  
+    <th><a href=./index.html>index</a></th>
+  
+</tr>
+</thead>
+</table>
+
+</html>
